@@ -2,13 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "3D model showcase app",
-  "main": "index.ts",
+  "main": "app.ts",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon dist/index.js",
-    "start": "node dist/index.js",
-    "start2": "ts-node src/index.ts",
-    "dev2": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon dist/app.js",
+    "start": "node dist/app.js",
+    "start2": "ts-node src/app.ts",
+    "dev2": "nodemon --exec ts-node src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -24,15 +24,19 @@
     "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/multer": "^1.4.7",
     "@types/node": "^18.15.11",
     "@types/pg": "^8.6.6",
+    "@types/uuid": "^9.0.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.22",
     "pg": "^8.10.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "uuid": "^9.0.0"
   }
 }

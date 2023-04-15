@@ -10,7 +10,7 @@ const pool = new Pool({
     port: Number(process.env.DB_PORT),
 });
 pool.on('error', (err, _client) => {
-    console.error('Unexpected error on idle client', err);
+    console.error('Unexpected error while connecting to database', err);
     process.exit(-1);
 });
 
