@@ -1,12 +1,17 @@
 import React from 'react';
-import './App.css';
-import Viewer from './Viewer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Viewer from './pages/Viewer';
+import HomePage from './pages/HomePage';
+// import ShowcasePage from './pages/ShowcasePage';
 
 function App() {
   return (
-    <>
-      <Viewer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="/showcase" Component={Viewer} />
+      </Routes>
+    </Router>
   );
 }
 
