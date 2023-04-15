@@ -1,6 +1,7 @@
 import app from './server'
 import pool from './config/db';
 import uploadRouter from './routes/uploadRoute';
+import showcaseRouter from './routes/showcaseRoute';
 import {createFileTable} from './queries/createFilesTable'
 import dotenv from 'dotenv';
 
@@ -15,6 +16,7 @@ app.get('/', (_req, res) => {
 
 //define your routes here
 app.use('/api/upload',uploadRouter)
+app.use('/api/showcase',showcaseRouter)
 
  pool
   .connect()
