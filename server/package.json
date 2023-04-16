@@ -5,6 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "watch": "tsc -w",
+    "build": "tsc -p .",
     "dev": "nodemon dist/app.js",
     "start": "node dist/app.js",
     "start2": "ts-node src/app.ts",
