@@ -13,7 +13,8 @@ export const handleFileUpload = async (req: Request, res: Response, _next: NextF
             });
         }
         // Get the uploaded file path
-        const file_path = req.file.path;
+        let file_path = req.file.path;
+        file_path = file_path.replace(/\\/g, "/"); // replace all occurrences of backslash with forward slash
   
         // Save the file metadata to the database
         const result = await uploadFile(title, description, file_path);

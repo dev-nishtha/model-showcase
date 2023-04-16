@@ -30,8 +30,16 @@ rules:
         - args
         - geometry
         - material
-        - '^Canvas.*'
-        - '^THREE.*'
+        - castShadow
+        - shadow-mapSize
+        - shadow-camera-far
+        - shadow-camera-top
+        - shadow-camera-bottom
+        - shadow-camera-left
+        - shadow-camera-right
+        - object
+        - dispose
+        - receiveShadow
 settings:
   react:
     version: 'detect'
