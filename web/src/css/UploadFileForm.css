@@ -1,0 +1,213 @@
+@keyframes color {
+  0%,
+  25% {
+    --bg: var(--c3);
+  }
+  26%,
+  50% {
+    --bg: var(--c1);
+  }
+  51%,
+  75% {
+    --bg: var(--c3);
+  }
+  76%,
+  100% {
+    --bg: var(--c2);
+  }
+}
+
+@keyframes position {
+  0% {
+    background-position: calc(var(--p) * 1) calc(var(--p) * 0),
+      calc(var(--p) * -1) calc(var(--p) * 1), calc(var(--p) * 1) calc(var(--p) * -1),
+      calc(var(--p) * -1) calc(var(--p) * 0);
+  }
+  25% {
+    background-position: calc(var(--p) * 1) calc(var(--p) * 4),
+      calc(var(--p) * -1) calc(var(--p) * 5), calc(var(--p) * 1) calc(var(--p) * 3),
+      calc(var(--p) * -1) calc(var(--p) * 4);
+  }
+  50% {
+    background-position: calc(var(--p) * 3) calc(var(--p) * 8),
+      calc(var(--p) * -3) calc(var(--p) * 9), calc(var(--p) * 2) calc(var(--p) * 7),
+      calc(var(--p) * -2) calc(var(--p) * 8);
+  }
+  75% {
+    background-position: calc(var(--p) * 3) calc(var(--p) * 12),
+      calc(var(--p) * -3) calc(var(--p) * 13), calc(var(--p) * 2) calc(var(--p) * 11),
+      calc(var(--p) * -2) calc(var(--p) * 12);
+  }
+  100% {
+    background-position: calc(var(--p) * 5) calc(var(--p) * 16),
+      calc(var(--p) * -5) calc(var(--p) * 17), calc(var(--p) * 5) calc(var(--p) * 15),
+      calc(var(--p) * -5) calc(var(--p) * 16);
+  }
+}
+@keyframes clipit {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  75% {
+    clip-path: polygon(49.5% 0, 50.5% 0, 50.5% 100%, 49.5% 100%);
+    opacity: 0.9;
+  }
+  to {
+    clip-path: polygon(49.5% 0, 50.5% 0, 50.5% 100%, 49.5% 100%);
+    opacity: 0;
+  }
+}
+@keyframes sending {
+  from {
+    height: 0;
+    transform: translate(-50%, -50%);
+  }
+  15% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    height: 200px;
+  }
+  to {
+    height: 200px;
+    transform: translate(-50%, -110vh);
+  }
+}
+.bg {
+  --s: 25vmin;
+  --p: calc(var(--s) / 2);
+  --c1: pink;
+  --c2: dodgerblue;
+  --c3: white;
+  --bg: var(--c3);
+  --d: 4000ms;
+  --e: cubic-bezier(0.76, 0, 0.24, 1);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  background-color: var(--bg);
+  background-image: linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+  background-size: var(--s) var(--s);
+  background-position: calc(var(--p) * 1) calc(var(--p) * 0), calc(var(--p) * -1) calc(var(--p) * 1),
+    calc(var(--p) * 1) calc(var(--p) * -1), calc(var(--p) * -1) calc(var(--p) * 0);
+  animation: color var(--d) var(--e) infinite, position var(--d) var(--e) infinite;
+}
+
+@media (prefers-reduced-motion) {
+  .bg {
+    animation: none;
+  }
+}
+.form-container {
+  background-color: white !important;
+  margin-top: 5rem;
+  padding: 2rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  animation-name: clipit;
+  animation-delay: 150ms;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+.dropzone {
+  border: 2px dashed #adb5bd;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.dropzone p {
+  margin-bottom: 0.5rem;
+}
+
+.dropzone em {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+  text-align: center;
+}
+
+.dropzone p.file {
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0069d9;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+}
+
+.form-group p.error {
+  margin-top: 0.5rem;
+  color: red;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border-color: transparent;
+  background-color: dodgerblue;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+  color: dodgerblue;
+  border-style: solid;
+  border-color: dodgerblue;
+  background-color: transparent;
+}
+
+#rocket {
+  z-index: 1;
+  position: absolute;
+  width: 2px;
+  height: 0px;
+  background-image: linear-gradient(var(--clr-white) 60%, var(--clr-primary), transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: sending;
+  animation-delay: 750ms;
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+.success {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: 3.5s opacity 500ms;
+  margin: 15rem 0 0 25rem;
+}
